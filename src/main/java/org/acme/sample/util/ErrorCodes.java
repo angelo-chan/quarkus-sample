@@ -26,4 +26,6 @@ public interface ErrorCodes {
 
     // BUSINESS
 
+    String INVALID_ROLE = "10100";
+
 }

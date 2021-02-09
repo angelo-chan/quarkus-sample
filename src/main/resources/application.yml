@@ -40,3 +40,14 @@ mp:
     extensions:
       smallrye:
         operationIdStrategy: CLASS_METHOD
+  jwt:
+    verify:
+      publickey:
+        location: META-INF/resources/publicKey.pem
+
+smallrye:
+  jwt:
+    sign:
+      key-location: privateKey.pem
+    new-token:
+      lifespan: 28800

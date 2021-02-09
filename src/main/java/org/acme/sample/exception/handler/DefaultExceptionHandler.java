@@ -24,7 +24,7 @@ public class DefaultExceptionHandler implements ExceptionMapper<Throwable> {
     public Response toResponse(Throwable e) {
         if (e instanceof JsonProcessingException | e instanceof IllegalArgumentException) {
             return Response.status(Response.Status.BAD_REQUEST)
-                    .entity(new ErrorEntity(BAD_REQUEST, "错误请求", e.getMessage()))
+                    .entity(new ErrorEntity(BAD_REQUEST, "Bad request", e.getMessage()))
                     .type(MediaType.APPLICATION_JSON).build();
         }
         log.error(e.getMessage(), e);
