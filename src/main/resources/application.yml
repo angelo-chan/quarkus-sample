@@ -1,0 +1,42 @@
+quarkus:
+  http:
+    limits:
+      max-body-size: 10240K
+    cors:
+      ~: true
+      access-control-allow-credentials: true
+    root-path: /sample
+  package:
+    type: jar
+    user-configured-ignored-entries:
+      - changelog.txt
+      - latestchanges.html
+      - placeholder.txt
+      - NOTICE.txt
+      - LICENSE.txt
+      - META-INF/placeholder.txt
+      - META-INF/AL2.0
+      - META-INF/ASL2.0.txt
+      - META-INF/ASL-2.0.txt
+      - META-INF/LGPL2.1
+      - META-INF/LGPL3.0.txt
+      - META-INF/LGPL-3.0.txt
+      - META-INF/versions/9/module-info.class
+  mongodb:
+    connection-string: mongodb://localhost:27017
+    database: quarkus-sample
+  redis:
+    hosts: redis://localhost:6379
+  smallrye-openapi:
+    path: /openapi
+  swagger-ui:
+    theme: original
+    title: Sample API
+    validator-url: none
+    doc-expansion: none
+    always-include: true
+mp:
+  openapi:
+    extensions:
+      smallrye:
+        operationIdStrategy: CLASS_METHOD
